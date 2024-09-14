@@ -1,5 +1,8 @@
+import sys
+import os
 import unittest
-import calculator
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from source import calculator
 
 class Testcalculator(unittest.TestCase):
     """
