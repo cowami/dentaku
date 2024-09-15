@@ -12,7 +12,13 @@ pipeline {
                 checkout scm
             }
         }
-
+        stage('Debug') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_USR'
+                sh 'echo $DOCKERHUB_CREDENTIALS'
+                sh 'docker --version'
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${DOCKER_IMAGE}:${BUILD_NUMBER} ."
