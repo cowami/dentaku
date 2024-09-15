@@ -2,14 +2,15 @@ pipeline {
     agent any
 
     environment {
-        DUMMY_VARIABLE = 'test'
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
 
     stages {
         stage('Debug') {
             steps {
                 sh 'echo "Hello, Jenkins!"'
-                sh 'echo $DUMMY_VARIABLE'
+                sh 'echo $DOCKERHUB_CREDENTIALS_USR'
+                sh 'echo $DOCKERHUB_CREDENTIALS exists'
                 sh 'whoami'
                 sh 'pwd'
             }
