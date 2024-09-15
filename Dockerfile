@@ -11,10 +11,10 @@ COPY . .
 ENV PYTHONPATH=/app
 
 # Change to the source directory if your app.py is in a subdirectory
-WORKDIR /app/source
+#WORKDIR /app/source
 
 # Verify the Python path and list directory contents
 RUN python -c "import sys; print(sys.path)" && ls -R /app
 
 # Update the CMD to use the correct module path
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "source.app:app"]
